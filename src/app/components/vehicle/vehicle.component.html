@@ -1,0 +1,38 @@
+<div *ngIf="!isLoading" class="container" fxLayout="column" fxLayoutGap="60px">
+
+    <div class="vehicles-container">
+        <div fxLayout="row">      
+            <mat-form-field appearance="fill" class="form">
+              <mat-label>Search</mat-label>
+              <input matInput class="form-control" [(ngModel)]="searchCriteria" type="text" name="searchCriteria"
+                id="searchCriteria" placeholder="Enter a year, make or model"
+                (ngModelChange)="this.searchCriteriaUpdate.next($event)">
+              <mat-icon *ngIf="!searchCriteria" matSuffix>search</mat-icon>
+              <button *ngIf="searchCriteria" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchCriteria()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+            </mat-form-field> 
+          </div>
+          <div *ngIf="vehicles" class="vehicle-table">
+            <table mat-table [dataSource]="vehicles" class="mat-elevation-z8" id="vehiclesTable" matSort (matSortChange)="sortData($event)">
+                <ng-container matColumnDef="year">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header="year">Year</th>
+                    <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+                </ng-container>
+                <ng-container matColumnDef="make">
+                    <th mat-header-cell *matHeaderCellDef>Make</th>
+                    <td mat-cell *matCellDef="let element">{{ element.make }}</td>
+                </ng-container>
+                <ng-container matColumnDef="model">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header="model">Model</th>
+                    <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+<h2 *ngIf="isLoading">Loading information...</h2>

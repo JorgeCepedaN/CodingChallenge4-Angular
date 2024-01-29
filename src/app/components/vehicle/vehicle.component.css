@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .vehicles-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+  
+  .mat-icon-button {
+    background-color: #f2f2f2;
+    color: #282c34;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .mat-icon-button:hover {
+    background-color: #d9d9d9;
+  }
+  
+  .vehicle-table {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  tr.mat-row:nth-child(odd) {
+    background-color: #9683EC;
+  }
+
+  .mat-elevation-z8 {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .mat-header-cell {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .mat-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .mat-row:hover {
+    background-color: #e6f7ff;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+    
+  @media (max-width: 768px) {
+    .vehicles-container {
+      width: 90%;
+    }
+  
+    .search-bar {
+      flex-direction: column;
+    }
+  
+    .mat-icon-button {
+      margin-top: 10px;
+    }
+  }
+  
